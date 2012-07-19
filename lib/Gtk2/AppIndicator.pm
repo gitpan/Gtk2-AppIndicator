@@ -26,7 +26,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 );
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 #sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -172,11 +172,11 @@ Sets the popup menu for the indicator icon.
 
 =head1 AUTHOR
 
-Hans Oesterholt, E<lt>debian@oesterholt.netE<gt>
+Hans Oesterholt, E<lt>oesterhol@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2012 by Hans Oesterholt <debian@oesterholt.net>
+Copyright (C) 2012 by Hans Oesterholt <oesterhol@cpan.org>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License, which comes with Perl.

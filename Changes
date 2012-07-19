@@ -1,2 +1,3 @@
+0.12 Wrong email address in distribution
 0.11 dh-make-perl somehow doesn't work on a directory, so I changed it (back) to --cpan
 0.09 Removed dependency on perl 5.012003, perl 5.006 is more then enough
