@@ -1,5 +1,7 @@
 #!/bin/bash
 
+find . -name "*~" -exec rm {} \;
+
 TEST=3
 echo "argument: $1"
 if [ "$1" = "test" ]; then
