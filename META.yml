@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Gtk2-AppIndicator
-version:            0.12
+version:            0.13
 abstract:           Perl extension for libappindicator
 author:
     - Hans Oesterholt <oesterhol@cpan.org>

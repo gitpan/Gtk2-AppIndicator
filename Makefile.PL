@@ -3,12 +3,12 @@ use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
-open my $fh,"pkg-config --cflags appindicator-0.1 |";
+open my $fh,"pkg-config --cflags appindicator-0.1 gtk+-2.0 |";
 my $inc=<$fh>;
 chomp $inc;
 close $fh;
 
-open $fh,"pkg-config --libs appindicator-0.1 |";
+open $fh,"pkg-config --libs appindicator-0.1 gtk+-2.0 |";
 my $lib=<$fh>;
 chomp $lib;
 close $fh;
