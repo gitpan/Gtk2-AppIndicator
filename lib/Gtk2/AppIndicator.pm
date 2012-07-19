@@ -26,7 +26,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 );
 
-our $VERSION = '0.09';
+our $VERSION = '0.11';
 
 #sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -170,19 +170,15 @@ Makes the application indicator show the attention icon.
   
 Sets the popup menu for the indicator icon.
 
-
-
 =head1 AUTHOR
 
 Hans Oesterholt, E<lt>debian@oesterholt.netE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2012 by Hans Oesterholt
+Copyright (C) 2012 by Hans Oesterholt <debian@oesterholt.net>
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.12.3 or,
-at your option, any later version of Perl 5 you may have available.
-
+This program is free software; you can redistribute it and/or modify
+it under the terms of the Artistic License, which comes with Perl.
 
 =cut
