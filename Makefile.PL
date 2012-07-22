@@ -3,15 +3,19 @@ use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
-open my $fh,"pkg-config --cflags appindicator-0.1 gtk+-2.0 |";
+open my $fh,"pkg-config --cflags appindicator-0.1 gtk+-2.0 2>/dev/null |";
 my $inc=<$fh>;
 chomp $inc;
 close $fh;
 
-open $fh,"pkg-config --libs appindicator-0.1 gtk+-2.0 |";
+open $fh,"pkg-config --libs appindicator-0.1 gtk+-2.0 2>/dev/null |";
 my $lib=<$fh>;
 chomp $lib;
 close $fh;
+
+if (not($inc)) {
+	die "pkg-config --cflags appindicator-0.1 gtk+-2.0 didn't succeed, make sure it is righly installed";
+}
 
 
 WriteMakefile(
@@ -27,7 +31,6 @@ WriteMakefile(
     INC               => '-I.'." $inc", # e.g., '-I. -I/usr/include/other'
 	# Un-comment this if you add C files to link with later:
     # OBJECT            => '$(O_FILES)', # link all the C files too
-    LICENSE           => 'Artistic',
 );
 
 if  (eval {require ExtUtils::Constant; 1}) {
