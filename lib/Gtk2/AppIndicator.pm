@@ -26,7 +26,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 );
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 #sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -236,19 +236,41 @@ Gtk2::AppIndicator - Perl extension for libappindicator
 
 =head1 SYNOPSIS
 
-  $status_icon=Gtk2::AppIndicator->new("CuePlay","cueplay_24");
-  $status_icon->set_icon_theme_path("../pixmaps");
+  use Gtk2 '-init';
+  use Gtk2::AppIndicator;
+  use Cwd;
+
+  # Initialize the status icon. an_icon_name must be present 
+  # at the icon theme path location, with an image extension like
+  # .jpg, .png or .svg, etc.
+  $status_icon=Gtk2::AppIndicator->new("AnAppName","an_icon_name");
+ 
+  # If you want to be in control over your icon location, you 
+  # can set it manually. It must be an absolute path, in order
+  # to work. 
+  my $absolute_current_working_directory=getcwd();
+  my $acwd=$absolute_current_working_directory;
+  $status_icon->set_icon_theme_path($acwd);
+
+  # Optionally set different icons 
+  # $status_icon->set_icon_name_active("an_icon_name");
+  # $status_icon->set_icon_name_attention("an_other_icon_name");
+  # $status_icon->set_icon_name_passive("an_other_icon_name");
+ 
+  # Add a menu to the indicator
   my $menu=Gtk2::Menu->new();
-  my $showcp=Gtk2::CheckMenuItem->new_with_mnemonic("_Show CuePlay");
+  my $showcp=Gtk2::CheckMenuItem->new_with_mnemonic("_Show My App");
   $showcp->set_active(1);
   $showcp->signal_connect("toggled",sub { hide_show($window,$showcp); });
   my $quit=Gtk2::MenuItem->new_with_mnemonic("_Quit");
-  $quit->signal_connect("activate",sub { storesize($window,\%conf);quit($window); });
+  $quit->signal_connect("activate",sub { Gtk->main_quit(); });
   
   $menu->append($showcp);
   $menu->append(Gtk2::SeparatorMenuItem->new());
   $menu->append($quit);
   $status_icon->set_menu($menu);
+
+  # Show our icon and set the state
   $menu->show_all();
   $status_icon->set_active();
 
